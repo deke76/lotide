@@ -8,3 +8,6 @@ const eqArrays = function(firstArray, secondArray) {
   }
   return true;
 };
+
+//Test code
+assertEqual(eqArrays([1,2,3],[1,2,]), true);
