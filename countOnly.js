@@ -6,14 +6,16 @@ const assertEqual = function(actual, expected) {
 
 const countOnly = function(allItems, itemsToCount) {
   let countedItems = {};
+  let sumItems = 0;
   for (const key in itemsToCount) {
-    if (itemsToCount[key]) countedItems[key] = 0;
+    if (itemsToCount[key]) {
+      for (const item of allItems) {
+        if (item === key) sumItems++;
+      }
+      if (sumItems) countedItems[key] = sumItems;
+    }
+    sumItems = 0;
   }
-
-  for (const item of allItems) {
-    if (itemsToCount[item]) countedItems[item]++;
-  }
-  
   return countedItems;
 };
 
