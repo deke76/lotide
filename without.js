@@ -12,7 +12,7 @@ const assertArraysEqual = function(actual, expected) {
 const without = function(firstArray, secondArray) {
   let outputArray = [];
   for (let i = 0; i < firstArray.length; i++) {
-    (secondArray.includes(firstArray[i])) ? i++ : outputArray.push(firstArray[i]);
+    if (!(secondArray.includes(firstArray[i]))) outputArray.push(firstArray[i]);
   }
   return outputArray;
 };
@@ -23,3 +23,4 @@ console.log(without(['1','2','3'], [1,2,"3"]));
 
 const words = ['hello', 'world', 'lighthouse'];
 without(words, ['lighthouse']);
+assertArraysEqual(words, ['hello', 'world', 'lighthouse']);
