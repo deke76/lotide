@@ -6,7 +6,7 @@ const eqArrays = function(firstArray, secondArray) {
     }
   }
   return arraysEqual;
-}
+};
 
 const assertArraysEqual = function(actual, expected) {
   eqArrays(actual, expected)
