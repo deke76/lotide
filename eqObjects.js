@@ -15,24 +15,14 @@ const eqArrays = function(firstArray, secondArray) {
 };
 
 const eqObjects = function(firstObject, secondObject) {
-  let bigObject;
-  let smallObject;
-  if (Object.keys(firstObject).length > Object.keys(secondObject).length) {
-    bigObject = firstObject;
-    smallObject = secondObject;
-  } else {
-    bigObject = secondObject;
-    smallObject = firstObject;
-  }
+  const firstObjectArray = Object.keys(firstObject).sort();
+  const secondObjectArray = Object.keys(secondObject).sort();
 
-  const bigObjectArray = Object.keys(bigObject).sort();
-  const smallObjectArray = Object.keys(smallObject).sort();
-
-  let equalObjects = eqArrays(bigObjectArray, smallObjectArray);
+  let equalObjects = eqArrays(firstObjectArray, secondObjectArray);
   let keyIndex = 0;
 
-  while (equalObjects && (keyIndex < bigObjectArray.length)) {
-    equalObjects = eqArrays(bigObject[bigObjectArray[keyIndex]], smallObject[smallObjectArray[keyIndex]]);
+  while (equalObjects && (keyIndex < firstObject.length)) {
+    equalObjects = eqArrays(firstObject[firstObjectArray[keyIndex]], secondObject[secondObjectArray[keyIndex]]);
     keyIndex++;
   }
   return equalObjects;
