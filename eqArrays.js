@@ -5,11 +5,17 @@ const assertEqual = function(actual, expected) {
 };
 
 const eqArrays = function(firstArray, secondArray) {
-  for (let i = 0; i < Math.max(firstArray.length, secondArray.length); i++) {
-    if (firstArray[i] !== secondArray[i]) return false;
+  let arraysEqual = firstArray.length === secondArray.length;
+  if (arraysEqual) {
+    for (let i = 0; i < firstArray.length; i++) {
+      if (firstArray[i] !== secondArray[i]) arraysEqual = false;
+    }
   }
-  return true;
+  return arraysEqual;
 };
 
 //Test code
-assertEqual(eqArrays([1,2], [1,2,3]), true);
+assertEqual(eqArrays([1,2], [1,2,3]), false);
+assertEqual(eqArrays([1,2], 2), false);
+assertEqual(eqArrays("one", "one"), true);
+assertEqual(eqArrays(2, 2), true);
