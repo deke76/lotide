@@ -1,5 +1,5 @@
 {
-  "name": "lotide",
+  "name": "@deke76/lotide",
   "version": "1.0.0",
   "description": "LHL Lotide library",
   "main": "index.js",
@@ -13,7 +13,11 @@
     "type": "git",
     "url": "git+https://github.com/deke76/lotide.git"
   },
-  "author": "darcy lauder",
+  "author": {
+    "name": "Darcy Lauder",
+    "email": "darcy.lauder@shaw.ca",
+    "url": "https://github.com/deke76"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/deke76/lotide/issues"
