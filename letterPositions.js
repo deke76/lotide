@@ -11,4 +11,6 @@ const letterPositions = function(stringToCount) {
   return countedString;
 };
 
-console.log(letterPositions("hello"));
+// console.log(letterPositions("hello"));
+
+module.exports = letterPositions;
