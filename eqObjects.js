@@ -28,6 +28,22 @@ const eqObjects = function(firstObject, secondObject) {
   return equalObjects;
 };
 
+const eqObjectsRecurse = function(firstObject, secondObject) {
+  let objectsEqual = true;
+
+  const compObject = Object.keys(firstObject).length > Object.keys(secondObject).length ? firstObject : secondObject;
+  const otherObject = Object.keys(firstObject).length > Object.keys(secondObject).length ? secondObject : firstObject;
+
+  for (const key in compObject) {
+    if (Object.prototype.toString.call(compObject[key]) === '[object Object]') {
+      objectsEqual = eqObjectsRecurse(compObject[key], otherObject[key]);
+    } else objectsEqual = (compObject[key] === otherObject[key]);
+    if (!objectsEqual) return objectsEqual;
+  }
+
+  return objectsEqual;
+};
+
 const ab = { a: "1", b: "2" };
 const ba = { b: "2", ag: "1" };
 assertEqual(eqObjects(ab, ba), false);
